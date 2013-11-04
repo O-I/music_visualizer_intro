@@ -80,12 +80,26 @@ class Visualizer < Processing::App
 
     @red1 = @scaled_ffts[2] * 255
     @green1 = @scaled_ffts[3] * 255
-    @blue = @scaled_ffts[4] * 255
+    @blue1 = @scaled_ffts[4] * 255
 
     fill @red1, @green1, @blue1
     stroke @red1 + 20, @green1 + 20, @blue1 + 20
 
     ellipse(@x1, @y1, @size, @size)
+
+    # Add another circle using different controlling frequencies
+
+    @x2 = width / 2 - @scaled_ffts[5] * width
+    @y2 = height / 2 -  @scaled_ffts[6] * height
+
+    @red2 = @scaled_ffts[7] * 255
+    @green2 = @scaled_ffts[8] * 255
+    @blue2 = @scaled_ffts[9] * 255
+
+    fill @red2, @green2, @blue1
+    stroke @red2 + 20, @green2 + 20, @blue2 + 20
+
+    ellipse(@x2, @y2, @size, @size)
   end
 
   def setup
