@@ -1,3 +1,3 @@
 # Music Visualizer with Ruby
 
-This is an attempt at making a music visualizer with Ruby using the ruby-processing gem. See [Create a Music Visualizer in 7 Steps with Ruby](http://dry.ly/ruby-music-visualizer) for more.
+This is a simple music visualizer coded in Ruby using the [ruby-processing](https://github.com/jashkenas/ruby-processing) gem and the [Minim](http://code.compartmental.net/tools/minim/) Java audio library. Java needs to be installed on your machine to get this working. Run `rp5 run visualizer.rb` to play. See [Create a Music Visualizer in 7 Steps with Ruby](http://dry.ly/ruby-music-visualizer) by David Guttman for more.
