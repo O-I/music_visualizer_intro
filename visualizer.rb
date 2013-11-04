@@ -13,4 +13,4 @@ class Visualizer < Processing::App
   
 end
 
-Visualizer.new title: "Visualizer"
+Visualizer.new :title => "Visualizer"
