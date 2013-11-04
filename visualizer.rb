@@ -53,7 +53,7 @@ class Visualizer < Processing::App
 
       # Use our "smoothness" factor and the previous FFT
       # to set a current FFT value
-      @current_ffts[i] = ((1 - @fft_smoothing)) * new_fft) + (@fft_smoothing * @previous_ffts[i])
+      @current_ffts[i] = ((1 - @fft_smoothing) * new_fft) + (@fft_smoothing * @previous_ffts[i])
 
       # Set a scaled/normalized FFT value that will be
       # easeir to work with for this frequency
