@@ -64,6 +64,30 @@ class Visualizer < Processing::App
     @beat.detect(@input.left)
   end
 
+  def animate_sound
+    # Creates a circle animated with sound:
+    # Horizontal position will be controlled by
+    # the FFT of 60Hz (normalized against width)
+    # Vertical position - 170Hz (normalized against height)
+    # red, green, blue - 310Hz, 600Hz, 1kHz (normalized against 255)
+    # Size - 170Hz (normalized against height), quadrupled on beat
+
+    @size = @scaled_ffts[1] * height
+    @size *= 4 if @beat.is_onset
+
+    @x1 = @scaled_ffts[0] * width + width / 2
+    @y1 = @scaled_ffts[1] * height + height / 2
+
+    @red1 = @scaled_ffts[2] * 255
+    @green1 = @scaled_ffts[3] * 255
+    @blue = @scaled_ffts[4] * 255
+
+    fill @red1, @green1, @blue1
+    stroke @red1 + 20, @green1 + 20, @blue1 + 20
+
+    ellipse(@x1, @y1, @size, @size)
+  end
+
   def setup
     smooth            # smoother == prettier
     size(1280, 100)   # let's pick a more interesting size
@@ -73,6 +97,7 @@ class Visualizer < Processing::App
   
   def draw
     update_sound
+    animate_sound
   end
   
 end
